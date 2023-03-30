@@ -1,0 +1,24 @@
+<div class="login-wrapper">
+
+    <h3 *ngIf="error; else notError" style="color: red;">{{ error }}</h3>
+    <ng-template #notError>
+        <h2>Please sign in</h2>
+    </ng-template>
+
+    <mat-spinner *ngIf="loading" class="form-spinner"></mat-spinner>
+
+    <form [formGroup]="loginGroup" class="login-form">
+        <mat-form-field appearance="fill">
+            <mat-label>E-mail:</mat-label>
+            <input type="text" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password:</mat-label>
+            <input type="password" matInput formControlName="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!loginGroup.valid || loading">
+            Login
+        </button>
+    </form>
+
+</div>

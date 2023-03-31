@@ -14,6 +14,7 @@ import { RolesComponent } from './roles/roles.component';
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {JwtInterceptor} from "../login/jwt-interceptor";
 import {CommonModule} from "@angular/common";
+import {DestroyService} from "./destroy.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {CommonModule} from "@angular/common";
         MatButtonModule
     ],
   providers: [
-      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+      DestroyService
   ],
   bootstrap: [AppComponent]
 })

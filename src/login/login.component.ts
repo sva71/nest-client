@@ -7,8 +7,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {LoginService} from "./login.service";
 import {HttpClientModule} from "@angular/common/http";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {finalize, take} from "rxjs";
+import {finalize, takeUntil} from "rxjs";
 import {Router} from "@angular/router";
+import {DestroyService} from "../app/destroy.service";
 
 interface LoginFormGroup {
     email: FormControl<string>;
@@ -26,6 +27,7 @@ interface LoginFormGroup {
         MatIconModule,
         HttpClientModule,
         MatProgressSpinnerModule],
+    providers: [DestroyService],
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
     error: string = '';
     path: string = '';
 
-    constructor(private loginService: LoginService, private router: Router) {
+    constructor(private loginService: LoginService, private router: Router, private destroy$: DestroyService) {
         this.path = this.router['browserUrlTree'].queryParams?.from || ''
     }
 
@@ -68,7 +70,7 @@ export class LoginComponent implements OnInit {
     onSubmit() {
         this.loading = true;
         this.loginService.login(this.loginGroup.value)
-            .pipe(take(1))
+            .pipe(takeUntil(this.destroy$))
             .pipe(finalize(() => this.loading = false))
             .subscribe({
                 next: response => response.token && localStorage.setItem('access-token', response.token),

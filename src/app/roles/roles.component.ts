@@ -24,7 +24,4 @@ export class RolesComponent implements OnInit {
         })
     }
 
-    getHome() {
-        this.router.navigateByUrl('').catch(err => console.error(err))
-    }
 }

@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UsersService} from "./users.service";
 import {IUser} from "../../interfaces/user-interfaces";
-import {takeUntil} from "rxjs";
-import {Router} from "@angular/router";
-import {DestroyService} from "../destroy.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-users',
@@ -12,17 +10,13 @@ import {DestroyService} from "../destroy.service";
 })
 export class UsersComponent implements OnInit {
 
-    users: Array<IUser>
+    users: Observable<Array<IUser>>;
 
-    constructor(private usersService: UsersService,
-                private router: Router, private destroy$: DestroyService) {
+    constructor(private usersService: UsersService) {
     }
 
     ngOnInit() {
-        this.usersService.getUsers().pipe(takeUntil(this.destroy$)).subscribe({
-            next: response => this.users = response,
-            error: err => console.log(err)
-        })
+        this.users = this.usersService.getUsers();
     }
 
 }

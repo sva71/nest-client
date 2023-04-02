@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-title',
-  templateUrl: './title.component.html'
+  template: `<h1>Nest.js client application</h1>`
 })
 export class TitleComponent {
 

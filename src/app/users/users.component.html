@@ -1,6 +1,6 @@
 <div class="wrapper">
     <ul>
-        <li *ngFor="let user of users">{{ user.email }}</li>
+        <li *ngFor="let user of users | async">{{ user.email }}</li>
     </ul>
     <button mat-raised-button color="primary" routerLink="">Home</button>
 </div>

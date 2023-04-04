@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {Routes} from "@angular/router";
 import {MenuComponent} from "./menu/menu.component";
+import {loginGuard} from "../login/login.guard";
 import {UsersComponent} from "./users/users.component";
 import {RolesComponent} from "./roles/roles.component";
 import {LoginComponent} from "../login/login.component";
-import {loginGuard} from "../login/login.guard";
 
-const routes: Routes = [
+export const ROUTES: Routes = [
     { path: '', component: MenuComponent, canActivate: [loginGuard] },
     { path: 'users', component: UsersComponent, canActivate: [loginGuard] },
     { path: 'roles', component: RolesComponent, canActivate: [loginGuard] },
@@ -20,9 +19,3 @@ const routes: Routes = [
         ]
     }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import {MatIconModule} from "@angular/material/icon";
-import {LoginService} from "./login.service";
-import {HttpClientModule} from "@angular/common/http";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {finalize, takeUntil} from "rxjs";
-import {Router} from "@angular/router";
-import {DestroyService} from "../app/destroy.service";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { LoginService } from "./login.service";
+import { HttpClientModule } from "@angular/common/http";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { finalize, takeUntil } from "rxjs";
+import { Router } from "@angular/router";
+import { DestroyService } from "../app/destroy.service";
 
 interface LoginFormGroup {
     email: FormControl<string>;

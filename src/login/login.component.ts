@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
-import { MatIconModule } from "@angular/material/icon";
 import { LoginService } from "./login.service";
-import { HttpClientModule } from "@angular/common/http";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { finalize, takeUntil } from "rxjs";
 import { Router } from "@angular/router";
@@ -24,8 +22,6 @@ interface LoginFormGroup {
         ReactiveFormsModule,
         MatInputModule,
         MatButtonModule,
-        MatIconModule,
-        HttpClientModule,
         MatProgressSpinnerModule],
     providers: [DestroyService],
     templateUrl: './login.component.html',
@@ -73,12 +69,8 @@ export class LoginComponent implements OnInit {
             .pipe(takeUntil(this.destroy$))
             .pipe(finalize(() => this.loading = false))
             .subscribe({
-                next: response => response.token && localStorage.setItem('access-token', response.token),
                 error: err => this.error = err.error.message,
-                complete: () => {
-                    localStorage.setItem('user-email', this.loginGroup.value.email);
-                    this.router.navigateByUrl(this.path).catch(err => console.log(err))
-                }
+                complete: () => this.router.navigateByUrl(this.path).catch(err => console.error(err))
         })
     }
 

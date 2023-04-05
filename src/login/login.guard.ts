@@ -1,4 +1,4 @@
-import {ActivatedRouteSnapshot, createUrlTreeFromSnapshot, RouterStateSnapshot} from "@angular/router";
+import { ActivatedRouteSnapshot, createUrlTreeFromSnapshot, RouterStateSnapshot } from "@angular/router";
 
 export function loginGuard(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let token = localStorage.getItem('access-token') || '';

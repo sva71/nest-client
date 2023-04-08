@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RolesService } from "./roles.service";
 import { IRole } from "../../interfaces/role-interface";
 import { Observable } from "rxjs";
@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 @Component({
     selector: 'app-roles',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         CommonModule,
         MatButtonModule,

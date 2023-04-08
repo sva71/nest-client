@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { MatButtonModule } from "@angular/material/button";
 import { RouterModule } from "@angular/router";
@@ -6,6 +6,7 @@ import { RouterModule } from "@angular/router";
 @Component({
     selector: 'app-menu',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         CommonModule,
         MatButtonModule,

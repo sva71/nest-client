@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UsersService } from "./users.service";
 import { IUser } from "../../interfaces/user-interfaces";
 import { Observable } from "rxjs";
@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 @Component({
     selector: 'app-users',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         CommonModule,
         MatButtonModule,

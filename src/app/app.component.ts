@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TitleComponent } from "./title/title.component";
 import { FooterComponent } from "./footer/footer.component";
 import { RouterModule } from "@angular/router";
@@ -6,6 +6,7 @@ import { RouterModule } from "@angular/router";
 @Component({
     selector: 'app-root',
     standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         TitleComponent,
         FooterComponent,

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UsersService } from "./users.service";
-import { IUser } from "../../interfaces/user-interfaces";
+import { IUser } from "../interfaces/user-interfaces";
 import { Observable } from "rxjs";
 import { CommonModule } from "@angular/common";
 import { MatButtonModule } from "@angular/material/button";

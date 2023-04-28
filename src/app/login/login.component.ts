@@ -7,7 +7,7 @@ import { LoginService } from "./login.service";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { finalize, takeUntil } from "rxjs";
 import { Router } from "@angular/router";
-import { DestroyService } from "../app/destroy.service";
+import { DestroyService } from "../destroy.service";
 
 interface LoginFormGroup {
     email: FormControl<string>;

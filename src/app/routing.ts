@@ -1,6 +1,6 @@
 import { Route } from "@angular/router";
-import { loginGuard } from "../login/login.guard";
-import { LoginComponent } from "../login/login.component";
+import { loginGuard } from "./login/login.guard";
+import { LoginComponent } from "./login/login.component";
 
 export const ROUTES: Route[] = [
     {

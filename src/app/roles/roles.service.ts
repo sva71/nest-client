@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {IRole} from "../../interfaces/role-interface";
+import {IRole} from "../interfaces/role-interface";
 
 const ROLES_URL: string = 'roles';
 

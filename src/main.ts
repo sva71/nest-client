@@ -1,7 +1,7 @@
 import { bootstrapApplication } from "@angular/platform-browser";
 import { AppComponent } from "./app/app.component";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import { JwtInterceptor } from "./login/jwt-interceptor";
+import { JwtInterceptor } from "./app/login/jwt-interceptor";
 import { provideRouter } from "@angular/router";
 import { ROUTES } from "./app/routing";
 import { importProvidersFrom } from "@angular/core";
